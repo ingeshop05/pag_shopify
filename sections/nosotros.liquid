@@ -1,0 +1,208 @@
+{{ 'nosotros.css' | asset_url | stylesheet_tag }}
+
+<div class="nos-page">
+
+  <!-- ═══ HERO INTRO ════════════════════════════════════════ -->
+  <div class="nos-hero">
+    <div class="container nos-hero__inner">
+      <div class="nos-hero__badge">
+        <span class="nos-hero__dot"></span>
+        Inge Shop — Tienda Tech Colombia
+      </div>
+      <h1 class="nos-hero__title">
+        No vendemos gadgets.<br>
+        <span class="nos-hero__accent">Resolvemos problemas.</span>
+      </h1>
+      <p class="nos-hero__sub">
+        Tecnología útil, atención humana y compras 100% seguras —
+        sin enredos, sin letra pequeña, sin demoras.
+      </p>
+    </div>
+    <div class="nos-hero__glow" aria-hidden="true"></div>
+  </div>
+
+  <div class="container nos-body">
+
+    <!-- ═══ MISIÓN + VISIÓN ══════════════════════════════════ -->
+    <div class="nos-mv">
+
+      <!-- Misión -->
+      <article class="nos-mv__card nos-mv__card--m">
+        <header class="nos-mv__card-head">
+          <div class="nos-mv__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="4"/>
+              <line x1="12" y1="2"  x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="2"  y1="12" x2="5"  y2="12"/>
+              <line x1="19" y1="12" x2="22" y2="12"/>
+            </svg>
+          </div>
+          <p class="nos-mv__eyebrow">Nuestra Misión</p>
+        </header>
+        <h2 class="nos-mv__title">Tecnología útil,<br>al alcance de todos</h2>
+        <p class="nos-mv__text">
+          En Inge Shop seleccionamos micrófonos, periféricos y gadgets de alta calidad
+          que resuelven algo concreto: una reunión más profesional, más productividad,
+          más comodidad. No agregamos productos al catálogo porque sí — los elegimos
+          porque funcionan y los recomendaríamos nosotros mismos.
+        </p>
+        <p class="nos-mv__text">
+          Compramos bien para que tú compres mejor. Y si algo no funciona,
+          estamos a un mensaje de distancia — como si le compraras a alguien
+          que sabe de tecnología y que además te responde de verdad.
+        </p>
+        <div class="nos-mv__chip-row">
+          <span class="nos-mv__chip">✓ Productos verificados</span>
+          <span class="nos-mv__chip">✓ Compras seguras</span>
+          <span class="nos-mv__chip">✓ Soporte real</span>
+        </div>
+      </article>
+
+      <!-- Visión -->
+      <article class="nos-mv__card nos-mv__card--v">
+        <header class="nos-mv__card-head">
+          <div class="nos-mv__icon nos-mv__icon--green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <p class="nos-mv__eyebrow nos-mv__eyebrow--green">Nuestra Visión</p>
+        </header>
+        <h2 class="nos-mv__title">La tienda tech<br>de confianza en Colombia</h2>
+        <p class="nos-mv__text">
+          Queremos que cuando alguien en Colombia necesite tecnología, piense en
+          Inge Shop — no porque vio un anuncio, sino porque un amigo se la
+          recomendó después de una buena experiencia.
+        </p>
+        <p class="nos-mv__text">
+          Estamos creciendo con nuestros clientes: más productos, mejor catálogo,
+          envíos más rápidos y la misma atención cercana que nos define.
+          La meta no es ser la tienda más grande — es ser la más confiable.
+        </p>
+        <div class="nos-mv__stat-row">
+          <div class="nos-mv__stat">
+            <span class="nos-mv__stat-num">+1.2K</span>
+            <span class="nos-mv__stat-label">Pedidos enviados</span>
+          </div>
+          <div class="nos-mv__stat">
+            <span class="nos-mv__stat-num">98%</span>
+            <span class="nos-mv__stat-label">Entregas exitosas</span>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /nos-mv -->
+
+    <!-- ═══ VALORES ══════════════════════════════════════════ -->
+    <div class="nos-vals-wrap">
+      <div class="nos-vals-head">
+        <div class="nos-vals-head__line"></div>
+        <h2 class="nos-vals-head__title">Los 5 pilares de Inge Shop</h2>
+        <div class="nos-vals-head__line"></div>
+      </div>
+
+      <div class="nos-vals">
+
+        <div class="nos-val">
+          <div class="nos-val__num">01</div>
+          <div class="nos-val__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 class="nos-val__title">Transparencia total</h3>
+          <p class="nos-val__desc">Precios claros y cero sorpresas al pagar. Lo que ves es exactamente lo que recibes.</p>
+        </div>
+
+        <div class="nos-val">
+          <div class="nos-val__num">02</div>
+          <div class="nos-val__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <h3 class="nos-val__title">Atención que sí responde</h3>
+          <p class="nos-val__desc">Sin esperas de días. Soporte directo y rápido por WhatsApp. Te resolvemos el problema.</p>
+        </div>
+
+        <div class="nos-val">
+          <div class="nos-val__num">03</div>
+          <div class="nos-val__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <h3 class="nos-val__title">Calidad antes que cantidad</h3>
+          <p class="nos-val__desc">Solo vendemos lo que pasó por nuestro filtro. Menos productos en catálogo, más confianza en cada uno.</p>
+        </div>
+
+        <div class="nos-val">
+          <div class="nos-val__num">04</div>
+          <div class="nos-val__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+          </div>
+          <h3 class="nos-val__title">Compromiso real</h3>
+          <p class="nos-val__desc">Lo que prometemos, lo cumplimos: envíos y seguimiento real de cada pedido.</p>
+        </div>
+
+        <div class="nos-val">
+          <div class="nos-val__num">05</div>
+          <div class="nos-val__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h3 class="nos-val__title">Tecnología sin enredos</h3>
+          <p class="nos-val__desc">Te explicamos todo en lenguaje normal. Sin tecnicismos, sin confusiones, para que decidas con confianza.</p>
+        </div>
+
+      </div><!-- /nos-vals -->
+    </div>
+
+    <!-- ═══ CTA WhatsApp ══════════════════════════════════════ -->
+    <div class="nos-cta">
+      <div class="nos-cta__glow" aria-hidden="true"></div>
+      <p class="nos-cta__eyebrow">¿Alguna pregunta?</p>
+      <h2 class="nos-cta__title">Hablemos directamente</h2>
+      <p class="nos-cta__desc">
+        Sin formularios. Sin esperas. Un mensaje por WhatsApp y te respondemos
+        con asesoría real, sin presión y sin compromiso.
+      </p>
+      <a href="https://wa.me/{{ section.settings.whatsapp_number }}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="nos-cta__btn btn btn-primary btn-lg"
+         id="nos-whatsapp-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+
+  </div><!-- /container nos-body -->
+</div><!-- /nos-page -->
+
+{% schema %}
+{
+  "name": "Nosotros — Inge Shop",
+  "settings": [
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp",
+      "default": "573150850759",
+      "info": "Con código de país, sin +. Ej: 573150850759"
+    }
+  ],
+  "presets": [{ "name": "Nosotros" }]
+}
+{% endschema %}

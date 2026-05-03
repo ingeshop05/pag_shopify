@@ -1,0 +1,188 @@
+/* ============================================================
+   INGE SHOP — section-hero-benefits.css
+   Sección de beneficios con propuesta de valor clara
+   ============================================================ */
+
+.hero-benefits {
+  padding: 4rem var(--container-padding);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.hero-benefits__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.hero-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.benefit-card {
+  padding: 2.5rem;
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.benefit-card:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-elevated);
+}
+
+.benefit-card:hover::before {
+  opacity: 1;
+}
+
+.benefit-card__number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  opacity: 0.2;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+}
+
+.benefit-card__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.benefit-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.benefit-card__metric {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Trust Bar Compacto */
+
+.hero-benefits__bottom {
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.trust-bar-compact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.trust-item-compact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  transition: color var(--transition);
+}
+
+.trust-item-compact:hover {
+  color: var(--accent-cyan);
+}
+
+.trust-item-compact:hover .trust-item-compact__icon {
+  color: var(--accent-cyan);
+}
+
+.trust-item-compact__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: color var(--transition);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .hero-benefits {
+    padding: 3rem var(--container-padding);
+  }
+
+  .hero-benefits__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    padding: 1.75rem;
+  }
+
+  .benefit-card__number {
+    font-size: 2rem;
+  }
+
+  .trust-bar-compact {
+    gap: 1.5rem;
+  }
+
+  .trust-item-compact {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-benefits {
+    padding: 2rem var(--container-padding);
+  }
+
+  .hero-benefits__title {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+
+  .benefit-card {
+    padding: 1.5rem;
+  }
+
+  .trust-bar-compact {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .trust-item-compact {
+    width: 100%;
+    justify-content: center;
+  }
+}

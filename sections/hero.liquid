@@ -1,0 +1,136 @@
+{{ 'section-hero-visual.css' | asset_url | stylesheet_tag }}
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__grid"></div>
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+  </div>
+
+  <div class="hero__content">
+
+    <div class="hero__eyebrow">
+      <div class="hero__eyebrow-dot" aria-hidden="true"></div>
+      <span class="tag">{{ section.settings.eyebrow | default: 'Sistema Activo - Envios Colombia' }}</span>
+    </div>
+
+    <h1 class="hero__title" id="hero-title">
+      {{ section.settings.title_line1 }}<br>
+      <em>{{ section.settings.title_line2 }}</em>
+    </h1>
+
+    <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+
+    <div class="hero__actions">
+      <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn-cta">
+        {{ section.settings.cta_text | default: 'Ver Productos' }}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      {% if section.settings.whatsapp_number != blank %}
+        <a href="https://wa.me/{{ section.settings.whatsapp_number }}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Contactar
+        </a>
+      {% endif %}
+    </div>
+
+    {%- comment -%} Columna derecha - Visual (solo desktop via CSS grid) {%- endcomment -%}
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero-visual-card">
+        {% assign hero_product = all_products[section.settings.featured_product] %}
+        {% if hero_product != blank %}
+          {% assign hero_image = hero_product.featured_image %}
+          {% assign hero_img_width = 500 %}
+          {% assign hero_img_height = hero_img_width | divided_by: hero_image.aspect_ratio | round %}
+          <div class="hero-visual-card__img">
+            <img
+              src="{{ hero_image | image_url: width: hero_img_width }}"
+              alt="{{ hero_product.title }}"
+              width="{{ hero_img_width }}"
+              height="{{ hero_img_height }}"
+              loading="eager">
+          </div>
+          <div class="hero-visual-card__info">
+            <span class="hero-visual-card__type">{{ hero_product.type }}</span>
+            <p class="hero-visual-card__name">{{ hero_product.title | truncate: 40 }}</p>
+            <span class="hero-visual-card__price">{{ hero_product.price | money }}</span>
+          </div>
+        {% else %}
+          <div class="hero-visual-placeholder">
+            <div class="hvp-grid">
+              <div class="hvp-line"></div>
+              <div class="hvp-line"></div>
+              <div class="hvp-line"></div>
+            </div>
+            <div class="hvp-badge">
+              <span class="hvp-badge__text">SISTEMA ACTIVO</span>
+            </div>
+            <div class="hvp-stats">
+              <div class="hvp-stat">
+                <span class="hvp-stat__number">1.2K+</span>
+                <span class="hvp-stat__label">Pedidos</span>
+              </div>
+              <div class="hvp-stat">
+                <span class="hvp-stat__number">98%</span>
+                <span class="hvp-stat__label">Entregas</span>
+              </div>
+              <div class="hvp-stat">
+                <span class="hvp-stat__number">24h</span>
+                <span class="hvp-stat__label">Despacho</span>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <div class="hero__stat-value" data-counter="{{ section.settings.stat1_value | default: 1240 }}" data-suffix="+">{{ section.settings.stat1_value | default: 1240 }}+</div>
+        <div class="hero__stat-label">{{ section.settings.stat1_label | default: 'Pedidos Enviados' }}</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value" data-counter="{{ section.settings.stat2_value | default: 98 }}" data-suffix="%">{{ section.settings.stat2_value | default: 98 }}%</div>
+        <div class="hero__stat-label">{{ section.settings.stat2_label | default: 'Entregas Exitosas' }}</div>
+      </div>
+      <div class="hero__stat">
+        <div class="hero__stat-value" data-counter="{{ section.settings.stat3_value | default: 24 }}" data-suffix="h">{{ section.settings.stat3_value | default: 24 }}h</div>
+        <div class="hero__stat-label">{{ section.settings.stat3_label | default: 'Despacho Promedio' }}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+    <span class="hero__scroll-text">Scroll</span>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "text",    "id": "eyebrow",     "label": "Eyebrow tag",           "default": "Tecnología de Grado Corporativo — Envíos Express",  "info": "Texto pequeño sobre el título principal." },
+    { "type": "text",    "id": "title_line1", "label": "Título línea 1",         "default": "Tecnología que" },
+    { "type": "text",    "id": "title_line2", "label": "Título línea 2 (acento)","default": "Potencia tu Mundo",                   "info": "Se muestra en color cyan como acento." },
+    { "type": "textarea","id": "subtitle",    "label": "Subtítulo",              "default": "Encuentra equipos de alto rendimiento con garantía superior. Calidad certificada para profesionales que no aceptan menos." },
+    { "type": "text",    "id": "cta_text",    "label": "Texto botón principal",  "default": "Explorar Catálogo" },
+    { "type": "url",     "id": "cta_link",    "label": "Destino boton principal","default": "/collections/all" },
+    { "type": "text",    "id": "whatsapp_number", "label": "Numero WhatsApp",    "default": "573000000000", "info": "Con codigo de pais, sin +. Ej: 573150850759. Deja vacio para ocultar el boton." },
+    { "type": "product", "id": "featured_product", "label": "Producto en visual (desktop)", "info": "Se muestra en la columna derecha en escritorio. Si no seleccionas uno, aparece un placeholder animado." },
+    { "type": "header",  "content": "Estadisticas" },
+    { "type": "number",  "id": "stat1_value", "label": "Estadistica 1 - numero","default": 1240 },
+    { "type": "text",    "id": "stat1_label", "label": "Estadistica 1 - etiqueta","default": "Pedidos Enviados" },
+    { "type": "number",  "id": "stat2_value", "label": "Estadistica 2 - numero","default": 98 },
+    { "type": "text",    "id": "stat2_label", "label": "Estadistica 2 - etiqueta","default": "Entregas Exitosas" },
+    { "type": "number",  "id": "stat3_value", "label": "Estadistica 3 - numero","default": 24 },
+    { "type": "text",    "id": "stat3_label", "label": "Estadistica 3 - etiqueta","default": "Despacho Promedio" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

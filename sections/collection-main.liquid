@@ -1,0 +1,125 @@
+{{ 'section-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  Detectar si es una colección especial para mostrar hero personalizado.
+  Colecciones soportadas: flash-deals, tech-solutions, top-ventas
+{%- endcomment -%}
+
+{%- assign col_handle = collection.handle -%}
+
+{%- case col_handle -%}
+  {%- when 'flash-deals' -%}
+    {%- assign hero_eyebrow = 'Ofertas por tiempo limitado' -%}
+    {%- assign hero_title   = 'Flash' -%}
+    {%- assign hero_accent  = 'Deals' -%}
+    {%- assign hero_desc    = 'Descuentos reales en tecnología seleccionada. Disponibilidad limitada — aprovecha ahora.' -%}
+  {%- when 'tech-solutions' -%}
+    {%- assign hero_eyebrow = 'Tecnología para el día a día' -%}
+    {%- assign hero_title   = 'Tech' -%}
+    {%- assign hero_accent  = 'Solutions' -%}
+    {%- assign hero_desc    = 'Productos tecnológicos que resuelven problemas reales. Seleccionados para maximizar tu productividad.' -%}
+  {%- when 'top-ventas' -%}
+    {%- assign hero_eyebrow = 'Lo más vendido' -%}
+    {%- assign hero_title   = 'Top' -%}
+    {%- assign hero_accent  = 'Ventas' -%}
+    {%- assign hero_desc    = 'Los productos más elegidos por nuestros clientes. Calidad comprobada por miles de pedidos.' -%}
+  {%- else -%}
+    {%- assign hero_eyebrow = 'Catálogo completo' -%}
+    {%- assign hero_title   = collection.title -%}
+    {%- assign hero_accent  = '' -%}
+    {%- assign hero_desc    = collection.description | strip_html | truncate: 140 -%}
+{%- endcase -%}
+
+<div class="collection-hero">
+  <div class="collection-hero__inner">
+    <span class="tag collection-hero__eyebrow">{{ hero_eyebrow }}</span>
+    <h1 class="collection-hero__title">
+      {{ hero_title }}
+      {% if hero_accent != blank %}
+        <em>{{ hero_accent }}</em>
+      {% endif %}
+    </h1>
+    {% if hero_desc != blank %}
+      <p class="collection-hero__desc">{{ hero_desc }}</p>
+    {% endif %}
+    <div class="collection-hero__meta">
+      <span class="tag">{{ collection.products_count }} productos</span>
+      {% if col_handle == 'flash-deals' %}
+        <span class="tag tag-amber">⚡ Oferta limitada</span>
+      {% elsif col_handle == 'top-ventas' %}
+        <span class="tag tag-green">★ Más vendidos</span>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<section class="section" aria-label="Productos de {{ collection.title }}">
+  <div class="container">
+    <div class="collection-sort">
+      <span class="collection-sort__count">
+        Mostrando {{ collection.products_count }} producto{% if collection.products_count != 1 %}s{% endif %}
+      </span>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <label class="collection-sort__label" for="sort-by">Ordenar</label>
+        <select id="sort-by" class="collection-sort__select"
+          onchange="window.location = '{{ collection.url }}?sort_by=' + this.value">
+          <option value="manual"{% if collection.sort_by == 'manual' %} selected{% endif %}>Destacados</option>
+          <option value="best-selling"{% if collection.sort_by == 'best-selling' %} selected{% endif %}>Más vendidos</option>
+          <option value="created-descending"{% if collection.sort_by == 'created-descending' %} selected{% endif %}>Más recientes</option>
+          <option value="price-ascending"{% if collection.sort_by == 'price-ascending' %} selected{% endif %}>Precio: menor a mayor</option>
+          <option value="price-descending"{% if collection.sort_by == 'price-descending' %} selected{% endif %}>Precio: mayor a menor</option>
+          <option value="title-ascending"{% if collection.sort_by == 'title-ascending' %} selected{% endif %}>A–Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="products-grid" role="list">
+      {% paginate collection.products by section.settings.products_per_page %}
+        {% for product in collection.products %}
+          {% render 'product-card', product: product %}
+        {% else %}
+          <p class="text-secondary" style="grid-column:1/-1;text-align:center;padding:4rem 0;">
+            No hay productos en esta colección todavía.
+          </p>
+        {% endfor %}
+
+        {% if paginate.pages > 1 %}
+          <nav style="grid-column:1/-1;display:flex;justify-content:center;gap:0.5rem;margin-top:2.5rem;flex-wrap:wrap;"
+               aria-label="Paginación">
+            {% if paginate.previous %}
+              <a href="{{ paginate.previous.url }}" class="btn btn-ghost btn-sm">← Anterior</a>
+            {% endif %}
+            {% for part in paginate.parts %}
+              {% if part.is_link %}
+                <a href="{{ part.url }}" class="btn btn-ghost btn-sm">{{ part.title }}</a>
+              {% else %}
+                <span class="btn btn-primary btn-sm" aria-current="page">{{ part.title }}</span>
+              {% endif %}
+            {% endfor %}
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}" class="btn btn-ghost btn-sm">Siguiente →</a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      {% endpaginate %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Main",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "label": "Productos por página",
+      "default": 12,
+      "info": "Cuántos productos mostrar antes de la paginación."
+    }
+  ]
+}
+{% endschema %}

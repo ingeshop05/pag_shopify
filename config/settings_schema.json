@@ -1,0 +1,53 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Inge Shop",
+    "theme_version": "2.0.0",
+    "theme_author": "Inge Shop",
+    "theme_documentation_url": "https://ingeshop.co",
+    "theme_support_url": "https://wa.me/573000000000"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Color de acento (CTA)",
+        "default": "#00e5ff"
+      },
+      {
+        "type": "color",
+        "id": "bg_primary",
+        "label": "Fondo principal",
+        "default": "#080808"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "Número WhatsApp (con código país, sin +)",
+        "default": "573000000000"
+      },
+      {
+        "type": "url",
+        "id": "facebook_url",
+        "label": "URL de Facebook"
+      },
+      {
+        "type": "url",
+        "id": "instagram_url",
+        "label": "URL de Instagram"
+      },
+      {
+        "type": "url",
+        "id": "tiktok_url",
+        "label": "URL de TikTok"
+      }
+    ]
+  }
+]

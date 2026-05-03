@@ -1,0 +1,152 @@
+/* ── Hero: Visual Card (solo desktop) ─────────────────────── */
+
+.hero__visual { display: none; }
+
+@media (min-width: 1024px) {
+  .hero__visual { display: flex; }
+}
+
+.hero-visual-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  box-shadow: 0 0 60px rgba(0, 229, 255, 0.06);
+  animation: float-card 6s ease-in-out infinite;
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+.hero-visual-card__img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.hero-visual-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-visual-card:hover .hero-visual-card__img img {
+  transform: scale(1.04);
+}
+
+.hero-visual-card__info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-visual-card__type {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero-visual-card__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 4px 0;
+}
+
+.hero-visual-card__price {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+/* ── Placeholder visual (cuando no hay producto configurado) ─ */
+
+.hero-visual-placeholder {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 300px;
+  justify-content: center;
+}
+
+.hvp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hvp-line {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan-dim), transparent);
+  animation: hvp-scan 3s ease-in-out infinite;
+}
+
+.hvp-line:nth-child(1) { width: 80%; animation-delay: 0s; }
+.hvp-line:nth-child(2) { width: 60%; animation-delay: 0.3s; }
+.hvp-line:nth-child(3) { width: 70%; animation-delay: 0.6s; }
+
+@keyframes hvp-scan {
+  0%, 100% { opacity: 0.4; transform: scaleX(1); }
+  50%       { opacity: 1;   transform: scaleX(1.02); }
+}
+
+.hvp-badge {
+  padding: 8px 16px;
+  border: 1px solid var(--border-accent);
+  border-radius: 100px;
+  display: inline-flex;
+  width: fit-content;
+  background: var(--accent-cyan-glow);
+}
+
+.hvp-badge__text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-cyan);
+}
+
+.hvp-stats {
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hvp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hvp-stat__number {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.hvp-stat__label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual-card { animation: none; }
+  .hvp-line { animation: none; }
+}

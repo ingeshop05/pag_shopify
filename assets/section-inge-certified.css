@@ -1,0 +1,151 @@
+/* ============================================================
+   INGE SHOP — section-inge-certified.css
+   Sección "Inge Certified" - Sello de calidad propio
+   ============================================================ */
+
+.inge-certified {
+  padding: 4rem var(--container-padding);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.inge-certified__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(0, 217, 204, 0.1);
+  border: 1px solid rgba(0, 217, 204, 0.3);
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.inge-certified__badge-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.inge-certified__badge-text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+.inge-certified__title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.inge-certified__title .text-accent {
+  color: var(--accent-cyan);
+}
+
+.inge-certified__subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  max-width: 60ch;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.inge-certified__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.certified-card {
+  padding: 2rem;
+  border-radius: 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition);
+}
+
+.certified-card:hover {
+  border-color: var(--accent-cyan);
+  background: var(--bg-elevated);
+  transform: translateY(-4px);
+}
+
+.certified-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: var(--accent-cyan);
+}
+
+.certified-card__icon svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.5;
+}
+
+.certified-card__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.certified-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.inge-certified__cta {
+  text-align: center;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .inge-certified {
+    padding: 3rem var(--container-padding);
+  }
+
+  .inge-certified__grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .certified-card {
+    padding: 1.5rem;
+  }
+
+  .inge-certified__title {
+    font-size: 1.5rem;
+  }
+
+  .inge-certified__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .inge-certified {
+    padding: 2rem var(--container-padding);
+  }
+
+  .inge-certified__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inge-certified__cta {
+    margin-top: 2rem;
+  }
+}

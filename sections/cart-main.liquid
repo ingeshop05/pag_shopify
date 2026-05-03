@@ -1,0 +1,66 @@
+{{ 'section-cart-main.css' | asset_url | stylesheet_tag }}
+
+<section class="section" aria-labelledby="cart-title">
+  <div class="container cart-page__container">
+    <h1 class="display-md cart-page__title" id="cart-title">Tu Carrito</h1>
+
+    {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" id="cart-form">
+        {% for item in cart.items %}
+          <div class="cart-item">
+            <a href="{{ item.url }}">
+              <img
+                class="cart-item__image"
+                src="{{ item.image | image_url: width: 120 }}"
+                alt="{{ item.title }}"
+                width="120"
+                height="90">
+            </a>
+            <div class="cart-item__body">
+              <a href="{{ item.url }}" class="heading-sm cart-item__name">{{ item.product.title }}</a>
+              {% unless item.variant.title == 'Default Title' %}
+                <p class="mono text-muted cart-item__variant">{{ item.variant.title }}</p>
+              {% endunless %}
+              <div class="cart-item__controls">
+                <div class="cart-qty">
+                  <button type="button" class="cart-qty__btn qty-btn"
+                    data-line="{{ forloop.index }}"
+                    data-qty="{{ item.quantity | minus: 1 }}"
+                    aria-label="Reducir cantidad">-</button>
+                  <span class="cart-qty__count">{{ item.quantity }}</span>
+                  <button type="button" class="cart-qty__btn qty-btn"
+                    data-line="{{ forloop.index }}"
+                    data-qty="{{ item.quantity | plus: 1 }}"
+                    aria-label="Aumentar cantidad">+</button>
+                </div>
+                <span class="price-current cart-item__price">{{ item.line_price | money }}</span>
+              </div>
+            </div>
+            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
+               class="cart-item__remove"
+               aria-label="Eliminar {{ item.title | escape }}">x</a>
+          </div>
+        {% endfor %}
+
+        <div class="cart-totals">
+          <div>
+            <p class="cart-totals__label">Total</p>
+            <p class="cart-totals__price">{{ cart.total_price | money }}</p>
+          </div>
+          <button type="submit" name="checkout" class="btn-cta btn-lg">
+            Finalizar Compra ->
+          </button>
+        </div>
+      </form>
+    {% else %}
+      <div class="cart-empty">
+        <p class="text-secondary body-lg cart-empty__text">Tu carrito esta vacio.</p>
+        <a href="{{ routes.collections_url }}/all" class="btn-cta">Ver Productos</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart Main", "settings": [] }
+{% endschema %}

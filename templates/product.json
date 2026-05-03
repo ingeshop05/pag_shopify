@@ -1,0 +1,53 @@
+{
+  "sections": {
+    "product-main": {
+      "type": "product-main",
+      "settings": {}
+    },
+    "product-testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "title": "Clientes que ya lo tienen",
+        "title_accent": ""
+      },
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Luis G. — Bogotá",
+            "message": "Excelente producto, llegó bien empacado y funciona perfecto. Definitivamente volvería a comprar 👌",
+            "time": "Hace 5 días"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "María C. — Cali",
+            "message": "Pagué online y sin problemas. El producto es tal cual como se ve en las fotos. Muy satisfecha 🌟",
+            "time": "Hace 3 días"
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Jorge H. — Medellín",
+            "message": "Envío rapidísimo, en 2 días ya lo tenía. La calidad superó mis expectativas. 100% recomendado ✅",
+            "time": "Hace 1 semana"
+          }
+        }
+      },
+      "block_order": ["testimonial-1", "testimonial-2", "testimonial-3"]
+    },
+    "product-cta": {
+      "type": "cta-banner",
+      "settings": {
+        "title": "¿Tienes dudas?",
+        "title_accent": "Escríbenos.",
+        "subtitle": "Nuestro equipo te asesora por WhatsApp antes de que compres.",
+        "cta_text": "Hablar con un asesor",
+        "whatsapp_number": "573000000000"
+      }
+    }
+  },
+  "order": ["product-main", "product-testimonials", "product-cta"]
+}

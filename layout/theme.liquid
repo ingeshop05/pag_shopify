@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page_description | escape }}">
+  <meta name="theme-color" content="#080808">
+  <link rel="icon" type="image/svg+xml" href="{{ 'logo-inge-shop.svg' | asset_url }}">
+  <title>{{ page_title }} — Inge Shop</title>
+
+  {{ content_for_header }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  {{ 'variables.css'    | asset_url | stylesheet_tag }}
+  {{ 'reset.css'        | asset_url | stylesheet_tag }}
+  {{ 'typography.css'   | asset_url | stylesheet_tag }}
+  {{ 'layout.css'       | asset_url | stylesheet_tag }}
+  {{ 'animations.css'   | asset_url | stylesheet_tag }}
+  {{ 'buttons.css'      | asset_url | stylesheet_tag }}
+  {{ 'navbar.css'       | asset_url | stylesheet_tag }}
+  {{ 'product-card.css' | asset_url | stylesheet_tag }}
+  {{ 'hero.css'         | asset_url | stylesheet_tag }}
+  {{ 'sections.css'     | asset_url | stylesheet_tag }}
+  {{ 'product-page.css' | asset_url | stylesheet_tag }}
+  {{ 'responsive.css'   | asset_url | stylesheet_tag }}
+</head>
+<body>
+
+  {% section 'navbar' %}
+
+  <main id="main-content" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  {%- comment -%}
+    JS — defer. Orden de carga crítico:
+    state → api → ui → cart → analytics → router → app
+  {%- endcomment -%}
+  <script src="{{ 'state.js'     | asset_url }}" defer></script>
+  <script src="{{ 'api.js'       | asset_url }}" defer></script>
+  <script src="{{ 'ui.js'        | asset_url }}" defer></script>
+  <script src="{{ 'cart.js'      | asset_url }}" defer></script>
+  <script src="{{ 'analytics.js' | asset_url }}" defer></script>
+  <script src="{{ 'router.js'    | asset_url }}" defer></script>
+  <script src="{{ 'app.js'       | asset_url }}" defer></script>
+
+</body>
+</html>

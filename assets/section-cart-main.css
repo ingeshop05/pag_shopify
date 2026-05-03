@@ -1,0 +1,141 @@
+/* ── Section: Cart Main ─────────────────────────────────────── */
+
+.cart-page__container {
+  max-width: 800px;
+}
+
+.cart-page__title {
+  margin-bottom: 2rem;
+}
+
+/* Fila de item en carrito */
+.cart-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  align-items: center;
+}
+
+/* Imagen del producto en carrito */
+.cart-item__image {
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Columna de info del item */
+.cart-item__body {
+  flex: 1;
+}
+
+/* Nombre del producto */
+.cart-item__name {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Variante */
+.cart-item__variant {
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+/* Fila de controles de cantidad */
+.cart-item__controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+/* Wrapper del stepper de cantidad */
+.cart-qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+/* Botones - / + del stepper */
+.cart-qty__btn {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
+}
+
+.cart-qty__btn:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+/* Numero de cantidad */
+.cart-qty__count {
+  width: 40px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* Precio de linea */
+.cart-item__price {
+  font-size: 1.1rem;
+}
+
+/* Boton eliminar */
+.cart-item__remove {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--text-muted);
+  transition: color var(--transition);
+  flex-shrink: 0;
+}
+
+.cart-item__remove:hover {
+  color: var(--text-primary);
+}
+
+/* Seccion de totales */
+.cart-totals {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Label de total */
+.cart-totals__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* Precio total */
+.cart-totals__price {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+/* Carrito vacio */
+.cart-empty {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.cart-empty__text {
+  margin-bottom: 2rem;
+}

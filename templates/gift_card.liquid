@@ -1,0 +1,27 @@
+{%- comment -%}
+  Gift card templates are special in Shopify and are still Liquid in OS 2.0.
+  Keep this minimal and reuse theme assets (no inline styles).
+{%- endcomment -%}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tarjeta de regalo — {{ shop.name }}{% if gift_card.code %} — {{ gift_card.code }}{% endif %}</title>
+
+    {{ content_for_header }}
+
+    {{ 'variables.css'    | asset_url | stylesheet_tag }}
+    {{ 'reset.css'        | asset_url | stylesheet_tag }}
+    {{ 'typography.css'   | asset_url | stylesheet_tag }}
+    {{ 'layout.css'       | asset_url | stylesheet_tag }}
+    {{ 'sections.css'     | asset_url | stylesheet_tag }}
+    {{ 'responsive.css'   | asset_url | stylesheet_tag }}
+  </head>
+
+  <body>
+    <main id="main-content" role="main">
+      {{ content_for_layout }}
+    </main>
+  </body>
+</html>

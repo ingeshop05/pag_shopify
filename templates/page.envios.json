@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "info-page": {
+      "type": "info-page",
+      "settings": {
+        "whatsapp_number": "573150850759"
+      }
+    }
+  },
+  "order": ["info-page"]
+}

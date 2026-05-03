@@ -1,0 +1,247 @@
+{{ 'section-contact-main.css' | asset_url | stylesheet_tag }}
+
+{%- assign wa_number = section.settings.whatsapp_number | default: '573150850759' -%}
+{%- assign wa_msg = section.settings.whatsapp_message | url_encode -%}
+{%- assign contact_email = section.settings.email | default: 'ingeshop.05@gmail.com' -%}
+{%- assign contact_instagram = section.settings.instagram_url | default: 'https://instagram.com/ingeshop_oficial' -%}
+{%- assign contact_facebook = section.settings.facebook_url | default: 'https://web.facebook.com/share/p/18sM5vouWL/' -%}
+
+<section class="section" aria-labelledby="contact-title">
+  <div class="container contact-page__container">
+    <header class="contact-page__header" data-animate>
+      <span class="tag">Contacto</span>
+      <h1 class="display-md contact-page__title" id="contact-title">
+        Estamos aqui<br>
+        <span class="text-accent">para ayudarte</span>
+      </h1>
+      <p class="contact-page__subtitle">
+        {{ section.settings.subtitle }}
+      </p>
+    </header>
+
+    <div class="contact-page__grid" data-animate data-animate-delay="2">
+      <div class="contact-form-wrapper">
+        <h2 class="contact-form__title">Envíanos un mensaje</h2>
+        <p class="contact-form__subtitle">Si prefieres el correo electrónico, completa el formulario y te contactaremos a la brevedad.</p>
+
+        {%- form 'contact', id: 'ContactForm', class: 'contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-status form-status-success" tabindex="-1" autofocus>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
+              </svg>
+              ¡Mensaje enviado con éxito! Te contactaremos pronto.
+            </div>
+          {%- elsif form.errors -%}
+            <div class="form-status form-status-error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="form-group">
+            <label for="ContactForm-name" class="form-label">Nombre completo</label>
+            <input
+              type="text"
+              name="contact[name]"
+              id="ContactForm-name"
+              class="form-input"
+              placeholder="Tu nombre"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="ContactForm-email" class="form-label">Correo electrónico</label>
+            <input
+              type="email"
+              name="contact[email]"
+              id="ContactForm-email"
+              class="form-input"
+              placeholder="email@ejemplo.com"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="ContactForm-body" class="form-label">Mensaje</label>
+            <textarea
+              rows="5"
+              name="contact[body]"
+              id="ContactForm-body"
+              class="form-input"
+              placeholder="¿En qué podemos ayudarte?"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-cta btn-block">
+            Enviar mensaje
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        {%- endform -%}
+      </div>
+
+      <div class="contact-info-wrapper">
+        <div class="contact-card--primary">
+          <div class="contact-card__icon contact-card__icon--whatsapp">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </div>
+
+          <p class="contact-card__label">Asesoría Directa</p>
+          <h2 class="contact-card__title">WhatsApp</h2>
+          <p class="contact-card__desc">
+            Obtén respuestas en tiempo real. Ideal para dudas técnicas o seguimiento de pedidos.
+          </p>
+
+          <div class="contact-availability">
+            <span class="contact-availability__dot" aria-hidden="true"></span>
+            <span class="contact-availability__text">{{ section.settings.availability_text | default: 'Disponible hoy · Respuesta en minutos' }}</span>
+          </div>
+
+          <a href="https://wa.me/{{ wa_number }}?text={{ wa_msg }}"
+             class="contact-btn--whatsapp"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Abrir conversación de WhatsApp con Inge Shop">
+            Escribir por WhatsApp
+          </a>
+
+          <p class="contact-promise">Soporte humano · Sin esperas</p>
+        </div>
+
+        <div class="contact-channels" style="margin-top: 1rem;">
+          <a href="mailto:{{ contact_email }}" class="contact-card--secondary">
+            <div class="contact-card--secondary__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/>
+              </svg>
+            </div>
+            <div class="contact-card--secondary__body">
+              <p class="contact-card--secondary__label">Email Corporativo</p>
+              <p class="contact-card--secondary__value">{{ contact_email }}</p>
+            </div>
+          </a>
+
+          <a href="{{ contact_instagram }}" class="contact-card--secondary" target="_blank" rel="noopener">
+            <div class="contact-card--secondary__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+            <div class="contact-card--secondary__body">
+              <p class="contact-card--secondary__label">Comunidad</p>
+              <p class="contact-card--secondary__value">@ingeshop_oficial</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-faq" data-animate>
+      <h2 class="contact-faq__title">Preguntas frecuentes</h2>
+      <div class="contact-faq__grid">
+        <div class="contact-faq__item">
+          <div class="contact-faq__item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <p class="contact-faq__item-q">¿Cuándo llega mi pedido?</p>
+          <p class="contact-faq__item-a">Despachamos en máximo 48h hábiles. El tiempo de entrega varía por ciudad y operador logístico.</p>
+        </div>
+
+        <div class="contact-faq__item">
+          <div class="contact-faq__item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <p class="contact-faq__item-q">¿Cómo funciona la garantía?</p>
+          <p class="contact-faq__item-a">Tienes 7 días desde que recibes el producto. Escríbenos por WhatsApp y te guiamos en el proceso.</p>
+        </div>
+
+        <div class="contact-faq__item">
+          <div class="contact-faq__item-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>
+            </svg>
+          </div>
+          <p class="contact-faq__item-q">¿Qué métodos de pago aceptan?</p>
+          <p class="contact-faq__item-a">Aceptamos tarjetas débito/crédito, PSE, efectivo (Efecty, Baloto) y otros métodos locales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Main",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo de la página",
+      "default": "Nuestro equipo está disponible para ayudarte con tu compra, resolver dudas y acompañarte en el proceso."
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp",
+      "default": "573150850759",
+      "info": "Con código de país, sin +. Ej: 573150850759."
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Mensaje predeterminado de WhatsApp",
+      "default": "Hola! Quiero más información sobre sus productos.",
+      "info": "Texto que aparece automáticamente al abrir WhatsApp."
+    },
+    {
+      "type": "text",
+      "id": "availability_text",
+      "label": "Texto de disponibilidad",
+      "default": "Disponible hoy · Respuesta en minutos"
+    },
+    {
+      "type": "text",
+      "id": "schedule",
+      "label": "Horario de atención",
+      "default": "Lun–Sab · 8 AM – 8 PM"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email de contacto",
+      "default": "ingeshop.05@gmail.com"
+    },
+    {
+      "type": "text",
+      "id": "instagram_url",
+      "label": "URL de Instagram",
+      "default": "https://instagram.com/ingeshop_oficial"
+    },
+    {
+      "type": "text",
+      "id": "facebook_url",
+      "label": "URL de Facebook",
+      "default": "https://web.facebook.com/share/p/18sM5vouWL/"
+    },
+    {
+      "type": "text",
+      "id": "tiktok_url",
+      "label": "URL de TikTok",
+      "info": "Deja vacío para ocultar."
+    }
+  ],
+  "presets": [{ "name": "Contact Main" }]
+}
+{% endschema %}

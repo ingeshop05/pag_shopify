@@ -1,0 +1,114 @@
+/* ── Section: Product Main ─────────────────────────────────── */
+
+/* Precio grande en ficha de producto */
+.product-page__price-current--lg {
+  font-size: 2rem;
+}
+
+/* Wrapper del precio y descuentos */
+.product-page__price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Indicador de stock */
+.product-page__stock-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.stock-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00ff88;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  animation: pulse-stock 2s infinite;
+}
+
+@keyframes pulse-stock {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Fila de badges de confianza debajo del precio */
+.product-page__trust-badges {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.trust-badge-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.trust-badge-mini svg {
+  color: var(--accent-color);
+}
+
+/* Wrapper del selector de variantes */
+.product-page__variant-wrapper {
+  margin-bottom: 1.5rem;
+}
+
+/* Label del selector de variantes */
+.product-page__variant-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+/* Select de variantes */
+.variant-select {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.variant-select:hover,
+.variant-select:focus {
+  border-color: var(--border-accent);
+  outline: none;
+}
+
+/* Boton secundario de WhatsApp en acciones */
+.product-page__whatsapp-btn {
+  margin-top: 0.75rem;
+}
+
+/* Separador de descripcion */
+.product-page__description-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+}

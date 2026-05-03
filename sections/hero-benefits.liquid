@@ -1,0 +1,78 @@
+{{ 'section-hero-benefits.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-benefits" aria-labelledby="hero-benefits-title">
+  <div class="container">
+    <h2 class="hero-benefits__title" id="hero-benefits-title">
+      {{ section.settings.section_title | default: '¿Por qué elegir Inge Shop?' }}
+    </h2>
+
+    <div class="hero-benefits__grid">
+      <div class="benefit-card">
+        <div class="benefit-card__number">01</div>
+        <h3 class="benefit-card__title">Mejor Precio</h3>
+        <p class="benefit-card__desc">
+          Tecnología premium sin pagar premium. Nuestros productos ofrecen el mejor relación calidad-precio del mercado colombiano.
+        </p>
+        <div class="benefit-card__metric">Hasta 40% menos que tiendas tradicionales</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__number">02</div>
+        <h3 class="benefit-card__title">Rendimiento Real</h3>
+        <p class="benefit-card__desc">
+          Cada dispositivo está testado y verificado. Especificaciones reales, no promesas de vendedor.
+        </p>
+        <div class="benefit-card__metric">Garantía verificable en cada producto</div>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-card__number">03</div>
+        <h3 class="benefit-card__title">Compra Segura</h3>
+        <p class="benefit-card__desc">
+          30 días de garantía total. Si cambia de idea, procesamos devoluciones sin preguntas innecesarias.
+        </p>
+        <div class="benefit-card__metric">100% de tranquilidad garantizada</div>
+      </div>
+    </div>
+
+    <div class="hero-benefits__bottom">
+      <div class="trust-bar-compact" role="complementary" aria-label="Verificacion rapida">
+        <div class="trust-item-compact">
+          <svg class="trust-item-compact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <span>30 días garantía</span>
+        </div>
+        <div class="trust-item-compact">
+          <svg class="trust-item-compact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 5v3h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          <span>Envío 24-48h</span>
+        </div>
+        <div class="trust-item-compact">
+          <svg class="trust-item-compact__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>Soporte WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Titulo de sección",
+      "default": "¿Por qué elegir Inge Shop?"
+    }
+  ],
+  "presets": [{ "name": "Hero Benefits" }]
+}
+{% endschema %}

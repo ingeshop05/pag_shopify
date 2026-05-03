@@ -1,0 +1,68 @@
+<header class="navbar" role="banner">
+  <a href="{{ routes.root_url }}" class="navbar__logo" aria-label="Inge Shop">
+    <picture class="navbar__logo-picture" aria-hidden="true">
+      <source srcset="{{ 'logo-inge-shop.svg' | asset_url }}" type="image/svg+xml">
+      <img
+        class="navbar__logo-image"
+        src="{{ 'logo-inge-shop.png' | asset_url }}"
+        alt=""
+        width="44"
+        height="44"
+        loading="eager">
+    </picture>
+    <span class="navbar__logo-text">INGE<span>SHOP</span></span>
+  </a>
+
+  <nav class="navbar__nav" role="navigation" aria-label="Navegación principal">
+    {% for link in linklists.main-menu.links %}
+      <a href="{{ link.url }}" class="nav-link{% if link.active %} active{% endif %}">
+        {{ link.title | upcase }}
+      </a>
+    {% endfor %}
+  </nav>
+
+  <div class="navbar__actions">
+    <a href="{{ routes.search_url }}" class="navbar__search-btn hide-mobile" aria-label="Buscar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+    </a>
+    <a href="{{ routes.cart_url }}" class="navbar__cart-btn" aria-label="Carrito ({{ cart.item_count }} productos)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span class="cart-count{% if cart.item_count == 0 %} cart-count--hidden{% endif %}" aria-live="polite">
+        {{ cart.item_count }}
+      </span>
+    </a>
+    <a href="https://wa.me/{{ section.settings.whatsapp_number }}" class="btn btn-primary btn-sm hide-mobile" target="_blank" rel="noopener noreferrer">
+      Pedir Ahora
+    </a>
+    <button class="navbar__menu-btn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="navbar__mobile-menu" role="dialog" aria-label="Menú móvil" aria-modal="true">
+  {% for link in linklists.main-menu.links %}
+    <a href="{{ link.url }}" class="mobile-nav-link">{{ link.title }}</a>
+  {% endfor %}
+  <a href="https://wa.me/{{ section.settings.whatsapp_number }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+    Pedir por WhatsApp
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Navbar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número WhatsApp (con código país, sin +)",
+      "default": "573000000000"
+    }
+  ]
+}
+{% endschema %}

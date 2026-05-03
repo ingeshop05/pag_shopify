@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "contact-main": {
+      "type": "contact-main",
+      "settings": {
+        "subtitle": "Nuestro equipo está disponible para ayudarte con tu compra, resolver dudas y acompañarte en el proceso.",
+        "whatsapp_number": "573150850759",
+        "whatsapp_message": "Hola! Quiero más información sobre sus productos.",
+        "availability_text": "Disponible hoy · Respuesta en minutos",
+        "schedule": "Lun–Sab · 8 AM – 8 PM",
+        "email": "ingeshop.05@gmail.com",
+        "instagram_url": "https://instagram.com/ingeshop_oficial",
+        "facebook_url": "https://web.facebook.com/share/p/18sM5vouWL/"
+      }
+    }
+  },
+  "order": ["contact-main"]
+}

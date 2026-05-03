@@ -1,0 +1,95 @@
+{{ 'section-inge-certified.css' | asset_url | stylesheet_tag }}
+
+<section class="inge-certified" aria-labelledby="inge-certified-title">
+  <div class="container">
+    <div class="inge-certified__badge">
+      <svg class="inge-certified__badge-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2L15.09 8.26H22L17.18 12.89L19.45 19.26L12 14.63L4.55 19.26L6.82 12.89L2 8.26H8.91L12 2Z"/>
+      </svg>
+      <span class="inge-certified__badge-text">Inge Certified</span>
+    </div>
+
+    <h2 class="inge-certified__title" id="inge-certified-title">
+      Seleccionados con<br>
+      <span class="text-accent">rigor y confianza</span>
+    </h2>
+
+    <p class="inge-certified__subtitle">
+      En Inge Shop, la ingeniería se encuentra con la curaduría. No somos una tienda masiva; somos un filtro de calidad para quienes buscan equipos que duren años, no meses.
+    </p>
+
+    <div class="inge-certified__grid">
+      <div class="certified-card">
+        <div class="certified-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M9 12l2 2 4-4m7-4a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="certified-card__title">Auditoría Técnica</h3>
+        <p class="certified-card__desc">
+          Cada componente es testeado bajo estrés. Si no rinde al 100% de su capacidad original, no entra en nuestro catálogo.
+        </p>
+      </div>
+
+      <div class="certified-card">
+        <div class="certified-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="certified-card__title">Rendimiento Real</h3>
+        <p class="certified-card__desc">
+          Nos enfocamos en la línea corporativa: equipos diseñados para trabajo pesado, 24/7 y multitarea exigente.
+        </p>
+      </div>
+
+      <div class="certified-card">
+        <div class="certified-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="certified-card__title">Garantía Extendida</h3>
+        <p class="certified-card__desc">
+          Ofrecemos 180 días de garantía real. Tu inversión está protegida por un soporte técnico que entiende de hardware.
+        </p>
+      </div>
+
+      <div class="certified-card">
+        <div class="certified-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3 class="certified-card__title">Consultoría Experta</h3>
+        <p class="certified-card__desc">
+          No te vendemos lo más caro, sino lo que necesitas. Habla directamente con expertos por WhatsApp.
+        </p>
+      </div>
+    </div>
+
+    <div class="inge-certified__cta">
+      <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn-cta">
+        Explorar productos certificados
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Inge Certified",
+  "settings": [
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link del botón",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [{ "name": "Inge Certified" }]
+}
+{% endschema %}

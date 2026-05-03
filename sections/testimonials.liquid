@@ -1,0 +1,60 @@
+<section class="testimonials section" id="testimonios" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="section-header" data-animate>
+      <div class="section-header__left">
+        <span class="tag">Clientes reales</span>
+        <h2 class="display-md" id="testimonials-title">
+          {{ section.settings.title }}<br>
+          {% if section.settings.title_accent != blank %}
+            <span class="text-accent">{{ section.settings.title_accent }}</span>
+          {% endif %}
+        </h2>
+      </div>
+    </div>
+    <div class="testimonials-grid" data-animate data-animate-delay="2">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="whatsapp-bar">
+            <span>WhatsApp</span>
+            <span>● En línea</span>
+          </div>
+          <div class="testimonial-bubble">{{ block.settings.message }}</div>
+          <div class="testimonial-time">✓✓ {{ block.settings.time }}</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border-subtle);">
+            <span class="testimonial-card__name">{{ block.settings.name }}</span>
+            <span class="stars">★★★★★</span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo que dicen" },
+    { "type": "text", "id": "title_accent", "label": "Título acento", "default": "nuestros clientes" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio",
+      "settings": [
+        { "type": "text",     "id": "name",    "label": "Nombre y ciudad", "default": "Carlos M. — Bogotá" },
+        { "type": "textarea", "id": "message", "label": "Mensaje",         "default": "Llegó súper rápido y exactamente como en la foto. 100% recomendado 🙌" },
+        { "type": "text",     "id": "time",    "label": "Tiempo",          "default": "Hace 2 días" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Testimonials",
+    "blocks": [
+      { "type": "testimonial", "settings": { "name": "Carlos M. — Bogotá",    "message": "Llegó súper rápido y exactamente como en la foto. El masajeador funciona increíble. 100% recomendado 🙌", "time": "Hace 2 días" } },
+      { "type": "testimonial", "settings": { "name": "Valentina R. — Medellín","message": "Pagué online y llegó al otro día. El cargador carga mi MacBook y el cel al mismo tiempo. Producto de alta calidad 🔥", "time": "Hace 1 semana" } },
+      { "type": "testimonial", "settings": { "name": "Andrés P. — Cali",       "message": "Ya van 3 pedidos y siempre llegan bien. El proyector es bestial, usamos la sala como cine jaja. Inge Shop no falla 👍", "time": "Hace 3 días" } }
+    ]
+  }]
+}
+{% endschema %}

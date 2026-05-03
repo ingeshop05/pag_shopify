@@ -1,0 +1,49 @@
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Ingresa con contraseña",
+      "login_form_password_label": "Contraseña",
+      "login_form_password_placeholder": "Tu contraseña",
+      "login_form_submit": "Entrar",
+      "login_form_error": "Contraseña incorrecta"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Agregar al carrito",
+      "sold_out": "Agotado",
+      "unavailable": "No disponible"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Carrito",
+      "empty": "Tu carrito está vacío",
+      "checkout": "Finalizar compra",
+      "subtotal": "Subtotal",
+      "remove": "Eliminar"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Tarjeta de regalo de %{shop}"
+    }
+  },
+  "collections": {
+    "sorting": {
+      "title": "Ordenar por",
+      "manual": "Destacados",
+      "best_selling": "Más vendidos",
+      "title_ascending": "A–Z",
+      "title_descending": "Z–A",
+      "price_ascending": "Precio: menor a mayor",
+      "price_descending": "Precio: mayor a menor",
+      "created_descending": "Más recientes",
+      "created_ascending": "Más antiguos"
+    }
+  },
+  "pagination": {
+    "previous": "Anterior",
+    "next": "Siguiente"
+  }
+}

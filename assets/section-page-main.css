@@ -1,0 +1,11 @@
+.page-main__container {
+  max-width: 800px;
+}
+
+.page-main__title {
+  margin-bottom: 2rem;
+}
+
+.page-main__content {
+  line-height: 1.8;
+}

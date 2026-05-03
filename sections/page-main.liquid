@@ -1,0 +1,12 @@
+{{ 'section-page-main.css' | asset_url | stylesheet_tag }}
+
+<section class="section">
+  <div class="container page-main__container">
+    <h1 class="display-md page-main__title">{{ page.title }}</h1>
+    <div class="body-md text-secondary page-main__content">{{ page.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Page Main", "settings": [] }
+{% endschema %}
