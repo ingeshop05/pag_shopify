@@ -1,7 +1,35 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "accent_color": "#00e5ff",
     "bg_primary": "#080808",
-    "whatsapp_number": "573150850759"
+    "whatsapp_number": "573150850759",
+    "sections": {
+      "navbar": {
+        "type": "navbar",
+        "settings": {
+          "whatsapp_number": "573000000000"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "whatsapp_number": "573150850759",
+          "email": "ingeshop.05@gmail.com",
+          "instagram_url": "https://instagram.com/ingeshop_oficial",
+          "facebook_url": "https://web.facebook.com/share/p/18sM5vouWL/",
+          "tiktok_url": "https://www.tiktok.com/@ingeshop_oficial?is_from_webapp=1&sender_device=pc"
+        }
+      }
+    },
+    "content_for_index": []
   }
 }
